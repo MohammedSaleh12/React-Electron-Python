@@ -11,10 +11,10 @@
 <br>
 
 <div align="center">
-  <a href="https://facebook.github.io/react/"><img src="../dist/react.png" style="width100px;height100px /></a>
+  <a href="https://facebook.github.io/react/"><img src="../dist/react.png" style="width100px;height100px;" /></a>
 
-  <a href="https://redux.js.org/"><img src="../dist/redux.png" style="width100px;height100px /></a>
-  <a href="https://www.electronjs.org/"><img src="../dist/electron.png" style="width100px;height100px /></a>
+  <a href="https://redux.js.org/"><img src="../dist/redux.png" style="width100px;height100px;" /></a>
+  <a href="https://www.electronjs.org/"><img src="../dist/electron.png" style="width100px;height100px;" /></a>
 
 </div>
 
