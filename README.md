@@ -10,26 +10,34 @@
 <br>
 
 <div align="center">
-  <a href="https://facebook.github.io/react/"><img src="./dist/react.png" /></a>
+  <a href="https://facebook.github.io/react/"><img src="./dist/react.png" style="width100px;height100px;/></a>
 
-  <a href="https://redux.js.org/"><img src="./dist/redux.png" /></a>
-  <a href="https://www.electronjs.org/"><img src="./dist/electron.png" /></a>
+  <a href="https://redux.js.org/"><img src="./dist/redux.png"style="width100px;height100px; /></a>
+  <a href="https://www.electronjs.org/"><img src="./dist/electron.png" style="width:100px;height100px;/></a>
 
-  <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="./dist/python.png" /></a>
-  <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/"><img src="./dist/sql.png" /></a>
+  <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="./dist/python.png" style="width100px;height100px;/></a>
+  <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/"><img src="./dist/sql.png" style="width:100px;height100px; /></a>
 </div>
 
 <hr />
 <br />
 
-<!-- <div align="center">
 
-[![Build Status][github-actions-status]][github-actions-url]
-[![Dependency Status][david-image]][david-url]
-[![DevDependency Status][david-dev-image]][david-dev-url]
-[![Github Tag][github-tag-image]][github-tag-url]
+## Previews
 
-</div> -->
+![Elctron-app](./dist/app.png?raw=true)
+![Electron-app-login](./dist/app2.png?raw=true)
+![elctron-app-full-screen](./dist/fullwindow.png??raw=true)
+
+## Features
+
+Front end **React Js**
+
+Backend **Flask api**
+
+App Base **Elctron js**
+
+Api login authentication **( jwt basic authentication)**
 
 ## Install
 
