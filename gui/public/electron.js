@@ -9,7 +9,7 @@ function createWindow () {
     height: 728,
     minWidth: 800, // set a min width!
     minHeight: 600, // and a min height!
-    frame: true,
+    frame: false,
     titleBarStyle: 'hidden', 
     webPreferences: {
       nodeIntegration: true

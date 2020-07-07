@@ -2,6 +2,17 @@ import React, {Component } from 'react';
 import axios from 'axios'
 import {Redirect} from "react-router-dom"
 
+import '../assets/css/style.css'
+import '../assets/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
+import '../assets/css/vendor/animate/animate.css'
+import '../assets/css/vendor/css-hamburgers/hamburgers.min.css'
+import '../assets/css/vendor/select2/select2.min.css'
+import '../assets/css/css/util.css'
+import '../assets/css/css/main.css'
+
+import wave from '../assets/img/wave.png';
+import bg from '../assets/img/bg.png';
+
 const base64 = require('base-64');
 
 class Login extends Component{
@@ -65,32 +76,43 @@ class Login extends Component{
             )
         }else{
             return(
-                <div className= 'container py-4 '>
-                <div className="col-md-6 col-md-offset-3">
-                <div className="alert alert-info ">
-                    Username: superuser<br />
-                    Password: 12345678
-                </div>
-                <h2>Login</h2>
-                <form name="form" onSubmit={this.handleSubmit}>
-                    <div className='form-group'>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-    
+                <div>
+                <img className="wave" src={wave} alt="wave"></img>
+                <div className="container">
+                    <div className="img">
+			            <img src={bg} alt="bg"/>
+		            </div>
+                <div className="login-content">
+                <form className="form" name="form" onSubmit={this.handleSubmit}>
+                    
+                    <span className="login100-form-title">
+						Login
+					</span>
+                
+                    <div className="wrap-input100 validate-input">
+                        <input className="input100" type="text" placeholder="Enter Username" name="username" value={username} onChange={this.handleChange} />
+                        <span className="focus-input100"></span>
+                        <span className="symbol-input100">
+                            <i className="fa fa-user" aria-hidden="true"></i>
+                        </span>
                     </div>
-                    <div className='form-group'>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
-        
+                    <div className="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input className="input100" type="password"  placeholder="Enter Password" name="password" value={password} onChange={this.handleChange} />
+                        <span className="focus-input100"></span>
+                        <span className="symbol-input100">
+                            <i className="fa fa-lock" aria-hidden="true"></i>
+                        </span>
                     </div>
-                    <div className="form-group">
-                        <button className="btn btn-primary" >Login</button>
-    
+                    <div className="container-login100-form-btn">
+                     <button type="submit" className="login100-form-btn">Login</button>
                     </div>
-    
+            
                 </form>
                 </div>
-            </div>
+                </div>
+                </div>
+
+             
             )
         }
 
