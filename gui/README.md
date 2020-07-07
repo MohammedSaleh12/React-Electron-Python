@@ -11,26 +11,16 @@
 <br>
 
 <div align="center">
-  <a href="https://facebook.github.io/react/"><img src="./dist/react.png" /></a>
+  <a href="https://facebook.github.io/react/"><img src="../dist/react.png" /></a>
 
-  <a href="https://redux.js.org/"><img src="./dist/redux.png" /></a>
-  <a href="https://www.electronjs.org/"><img src="./dist/electron.png" /></a>
+  <a href="https://redux.js.org/"><img src="../dist/redux.png" /></a>
+  <a href="https://www.electronjs.org/"><img src="../dist/electron.png" /></a>
 
-  <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="./dist/python.png" /></a>
-  <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/"><img src="./dist/sql.png" /></a>
 </div>
 
 <hr />
 <br />
 
-<div align="center">
-
-[![Build Status][github-actions-status]][github-actions-url]
-[![Dependency Status][david-image]][david-url]
-[![DevDependency Status][david-dev-image]][david-dev-url]
-[![Github Tag][github-tag-image]][github-tag-url]
-
-</div>
 
 ## Install
 
@@ -53,24 +43,7 @@ cd gui
 npm install
 
 ```
-Then , Install React-elctron boilerplat dependencies:
 
-
-
-Then , Install python dependencies:
-```bash
-cd ..
-cd engine 
-pip install -r requaments.txt
-
-```
-
-or 
-
-```bash
-pip install pipenv
-
-```
 
 ## To start this project :
 Fast you hav to run Flask app (backhand server) then run elctron-react-boilerplate 
