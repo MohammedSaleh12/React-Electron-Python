@@ -1,6 +1,6 @@
 
 
-## BUILD A MORDERN CROSS PLATFROM DESKTOP APP USING NODEJS AND PYTHON 
+## BUILD A MORDERN CROSS PLATFROM DESKTOP APP USING ELECTRON, REACT, REDUX AND NPM 
 
 <br>
 
@@ -11,10 +11,11 @@
 <br>
 
 <div align="center">
-  <a href="https://facebook.github.io/react/"><img src="../dist/react.png" style="width100px;height100px;" /></a>
+  <a href="https://facebook.github.io/react/"><img src="../dist/react.png" /></a>
 
-  <a href="https://redux.js.org/"><img src="../dist/redux.png" style="width100px;height100px;" /></a>
-  <a href="https://www.electronjs.org/"><img src="../dist/electron.png" style="width100px;height100px;" /></a>
+  <a href="https://redux.js.org/"><img src="../dist/redux.png" /></a>
+  <a href="https://www.electronjs.org/"><img src="../dist/electron.png"  /></a>
+  <a href="https://www.npmjs.com/"><img src="../dist/npm.png"  /></a>
 
 </div>
 

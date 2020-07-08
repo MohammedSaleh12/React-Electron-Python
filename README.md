@@ -10,13 +10,12 @@
 <br>
 
 <div align="center">
-  <a href="https://facebook.github.io/react/"><img src="./dist/react.png" style="width100px;height100px;"/></a>
+  <a href="https://facebook.github.io/react/"><img src="./dist/react.png" ></a>
 
-  <a href="https://redux.js.org/"><img src="./dist/redux.png"style="width100px;height100px;" /></a>
-  <a href="https://www.electronjs.org/"><img src="./dist/electron.png" style="width:100px;height100px;"/></a>
+  <a href="https://www.electronjs.org/"><img src="./dist/electron.png" /></a>
 
-  <a href="https://flask.palletsprojects.com/en/1.1.x/"><img src="./dist/python.png" style="width100px;height100px;"/></a>
-  <a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/"><img src="./dist/sql.png" style="width:100px;height100px;" /></a>
+  <a href="https://www.python.org/doc/"><img src="./dist/python.png" /></a>
+
 </div>
 
 <hr />
@@ -25,9 +24,12 @@
 
 ## Previews
 
-![Elctron-app](./dist/app.png?raw=true)
-![Electron-app-login](./dist/app2.png?raw=true)
-![elctron-app-full-screen](./dist/fullwindow.png??raw=true)
+![screen-shot-1](./dist/screenshot/1.png?raw=true)
+![screen-shot-2](./dist/screenshot/2.png?raw=true)
+![screen-shot-3](./dist/screenshot/3.png?raw=true)
+![screen-shot-4](./dist/screenshot/4.png?raw=true)
+![screen-shot-5](./dist/screenshot/5.png?raw=true)
+![screen-shot-6](./dist/screenshot/6.png?raw=true)
 
 ## Features
 
@@ -37,7 +39,11 @@ Backend **Flask api**
 
 App Base **Elctron js**
 
+## App Features
+
 Api login authentication **( jwt basic authentication)**
+
+After login you  got - **[Coreui Dashbord ](https://coreui.io/react/)**
 
 ## Install
 
