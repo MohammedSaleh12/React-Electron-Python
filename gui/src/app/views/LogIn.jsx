@@ -13,6 +13,8 @@ import '../assets/css/css/main.css'
 import wave from '../assets/img/wave.png';
 import bg from '../assets/img/bg.png';
 
+
+
 const base64 = require('base-64');
 
 class Login extends Component{
@@ -33,7 +35,7 @@ class Login extends Component{
         const { name, value } = e.target;
         this.setState({ [name]: value });
     }
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
         // console.log(this.state)
         let basic = 'Basic ' + base64.encode(this.state.username + ":" + this.state.password)
@@ -61,7 +63,7 @@ class Login extends Component{
             });
           }
         if(sessionStorage.getItem('Token')){
-            this.setState({logedIn:true})
+            await this.setState({logedIn:true})
         }else{
             this.setState({logedIn:false})
         }   

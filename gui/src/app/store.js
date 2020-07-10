@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { createStore , combineReducers } from 'redux'
 
 const initialState = {
   sidebarShow: 'responsive'
@@ -13,5 +13,11 @@ const changeState = (state = initialState, { type, ...rest }) => {
   }
 }
 
-const store = createStore(changeState)
+const rootReducer = combineReducers({
+  changeState, 
+})
+
+
+
+const store = createStore(rootReducer)
 export default store

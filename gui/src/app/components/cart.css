@@ -1,0 +1,9 @@
+.card {
+    display:flex;
+    min-height: 0;
+    max-height: 900;
+    min-width: 0;
+    flex-direction: column;
+    position: relative;
+   
+}

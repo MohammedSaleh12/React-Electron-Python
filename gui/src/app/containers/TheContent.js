@@ -4,7 +4,8 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import { CContainer, CFade } from '@coreui/react'
+import {  CFade } from '@coreui/react'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 // routes config
 import routes from '../routes'
@@ -17,8 +18,9 @@ const loading = (
 
 const TheContent = () => {
   return (
-    <main className="c-main">
-      <CContainer fluid>
+    <main className="c-main my-0 my-0 px-0 py-0">
+      {/* <CContainer fluid className="px-0 py-0"> */}
+      <PerfectScrollbar>
         <Suspense fallback={loading}>
           <Switch>
             {routes.map((route, idx) => {
@@ -38,7 +40,8 @@ const TheContent = () => {
             <Redirect from="/" to="/dashboard" />
           </Switch>
         </Suspense>
-      </CContainer>
+      </PerfectScrollbar>
+      {/* </CContainer> */}
     </main>
   )
 }

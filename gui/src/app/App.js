@@ -1,5 +1,5 @@
 import React from 'react';
-import Titlebar from 'react-electron-titlebar';
+import Titlebar from 'react-electron-titlebar'; 
 import { BrowserRouter, Route } from "react-router-dom"
 
 import './scss/style.scss';
@@ -8,6 +8,7 @@ import './App.css';
 
 import Login from "./views/LogIn.jsx"
 import Dsahbord from './views/dashBord.jsx';
+
 
 const loading = (
   <div className="pt-3 text-center">
