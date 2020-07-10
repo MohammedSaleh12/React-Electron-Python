@@ -19,7 +19,7 @@ const loading = (
 const TheContent = () => {
   return (
     <main className="c-main my-0 my-0 px-0 py-0">
-      {/* <CContainer fluid className="px-0 py-0"> */}
+      
       <PerfectScrollbar>
         <Suspense fallback={loading}>
           <Switch>
@@ -41,7 +41,7 @@ const TheContent = () => {
           </Switch>
         </Suspense>
       </PerfectScrollbar>
-      {/* </CContainer> */}
+      
     </main>
   )
 }

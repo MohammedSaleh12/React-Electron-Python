@@ -12,6 +12,7 @@ import {
   CSidebarNavItem,
 } from '@coreui/react'
 
+// import  { rootReducer } from  "../store"
 
 import CIcon from '@coreui/icons-react'
 // import  cifAU from '@coreui/icons';
@@ -23,11 +24,14 @@ import navigation from './_nav'
 
 const TheSidebar = () => {
   const dispatch = useDispatch()
-  const show = useSelector(state => state.sidebarShow)
-
+  const show = useSelector((state: rootReducer) => state.changeState.sidebarShow)
+  console.log(show)
+  
   return (
+    
     <CSidebar
       show={show}
+      
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
       <CSidebarBrand className="d-md-down-none" to="/">

@@ -27,7 +27,6 @@ class Dsahbord extends Component{
             <HashRouter>
                 <React.Suspense fallback={loading}>
                   <Switch>
-
                     <Route path="/" name="Home" render={props => <TheLayout {...props}/>} />
                   </Switch>
                 </React.Suspense>

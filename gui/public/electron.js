@@ -1,12 +1,35 @@
-const { app, BrowserWindow , screen } = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require("path")
 const isDev = require("electron-is-dev")
 
+// function createWindow () {
+//   const { width, height } = screen.getPrimaryDisplay().workAreaSize
+//   const win = new BrowserWindow({
+//     width,
+//     height,
+//     frame: false,
+//     titleBarStyle: 'hidden', 
+//     webPreferences: {
+//       nodeIntegration: true
+//     }
+//   })
+
+//   // and load the index.html of the app.
+//   win.loadURL(
+//       isDev ? "http://localhost:3000" : 'file://${path.join(__dirname, "../build/index.html")}'
+//   )
+
+//   // Open the DevTools.
+//   // win.webContents.openDevTools()
+// }
+
 function createWindow () {
-  const { width, height } = screen.getPrimaryDisplay().workAreaSize
+  // Create the browser window.
   const win = new BrowserWindow({
-    width,
-    height,
+    width: 1024,
+    height: 728,
+    minWidth: 800, // set a min width!
+    minHeight: 600, // and a min height!
     frame: false,
     titleBarStyle: 'hidden', 
     webPreferences: {
@@ -23,9 +46,6 @@ function createWindow () {
   // win.webContents.openDevTools()
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can win.loadURL('https://github.com')only be used after this event occurs.
 app.whenReady().then(createWindow)
 
 

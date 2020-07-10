@@ -12,7 +12,7 @@ import Table from "../../components/tables.jsx"
 import { Card } from 'semantic-ui-react';
 // import Cart from "../../components/cart.jsx"
 
-const Dashboard = () => {
+const Pos = () => {
   return (
     <Resizable
     style= {Card}
@@ -28,4 +28,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Pos
