@@ -12,7 +12,6 @@ import {
   CSidebarNavItem,
 } from '@coreui/react'
 
-// import  { rootReducer } from  "../store"
 
 import CIcon from '@coreui/icons-react'
 // import  cifAU from '@coreui/icons';
@@ -22,16 +21,17 @@ import logo from '../../logo.svg';
 // sidebar nav config
 import navigation from './_nav'
 
+
+
 const TheSidebar = () => {
   const dispatch = useDispatch()
-  const show = useSelector((state: rootReducer) => state.changeState.sidebarShow)
-  console.log(show)
+  const show = useSelector(state => state.changeState.sidebarShow)
   
+  
+
   return (
-    
     <CSidebar
       show={show}
-      
       onShowChange={(val) => dispatch({type: 'set', sidebarShow: val })}
     >
       <CSidebarBrand className="d-md-down-none" to="/">

@@ -35,7 +35,7 @@ class Login extends Component{
         const { name, value } = e.target;
         this.setState({ [name]: value });
     }
-    async handleSubmit(e) {
+    handleSubmit(e) {
         e.preventDefault();
         // console.log(this.state)
         let basic = 'Basic ' + base64.encode(this.state.username + ":" + this.state.password)
@@ -56,23 +56,36 @@ class Login extends Component{
             .then(function (response) {
                 let token = JSON.stringify(response.data)
                 sessionStorage.setItem('Token' , token)
+                
             })
             .catch(function (error) {
               console.warn(error);
               
             });
           }
+          
+    }
+    componentWillMount(){
         if(sessionStorage.getItem('Token')){
-            await this.setState({logedIn:true})
+            this.setState({logedIn:true})
         }else{
             this.setState({logedIn:false})
-        }   
+        }
     }
+    componentDidMount(){
+        if(sessionStorage.getItem('Token')){
+            this.setState({logedIn:true})
+        }else{
+            this.setState({logedIn:false})
+        }
+    }
+    componentWillUpdate(){console.log(this.state.logedIn)}
 
     render(){
+        console.log(sessionStorage.getItem('Token'))
         const { username, password } = this.state;
         
-        if(sessionStorage.getItem('Token')){
+        if(this.state.logedIn === true){
             return (
                 <Redirect to={'/dashbord'}/>
             )

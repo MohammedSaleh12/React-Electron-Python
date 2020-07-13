@@ -1,10 +1,8 @@
 import { createStore , combineReducers } from 'redux'
 
-const initialState = {
-  sidebarShow: 'responsive'
-}
 
-const changeState = (state = initialState, { type, ...rest }) => {
+
+const changeState = (state = {sidebarShow: 'responsive'} ,{ type, ...rest }) => {
   switch (type) {
     case 'set':
       return {...state, ...rest }
@@ -14,7 +12,7 @@ const changeState = (state = initialState, { type, ...rest }) => {
 }
 
 const rootReducer = combineReducers({
-  changeState, 
+  changeState,
 })
 
 

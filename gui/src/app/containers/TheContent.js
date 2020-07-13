@@ -18,8 +18,8 @@ const loading = (
 
 const TheContent = () => {
   return (
-    <main className="c-main my-0 my-0 px-0 py-0">
-      
+    
+    <div>
       <PerfectScrollbar>
         <Suspense fallback={loading}>
           <Switch>
@@ -37,12 +37,12 @@ const TheContent = () => {
                   )} />
               )
             })}
-            <Redirect from="/" to="/dashboard" />
+            <Redirect from="/" to="/Pos" />
           </Switch>
         </Suspense>
       </PerfectScrollbar>
-      
-    </main>
+    </div>    
+    
   )
 }
 

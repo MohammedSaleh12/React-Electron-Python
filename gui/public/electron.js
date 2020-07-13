@@ -1,8 +1,8 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, screen} = require('electron')
 const path = require("path")
+const os = require('os')
 const isDev = require("electron-is-dev")
 
-// function createWindow () {
 //   const { width, height } = screen.getPrimaryDisplay().workAreaSize
 //   const win = new BrowserWindow({
 //     width,
@@ -25,9 +25,10 @@ const isDev = require("electron-is-dev")
 
 function createWindow () {
   // Create the browser window.
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize
   const win = new BrowserWindow({
-    width: 1024,
-    height: 728,
+    width,
+    height,
     minWidth: 800, // set a min width!
     minHeight: 600, // and a min height!
     frame: false,
@@ -36,17 +37,19 @@ function createWindow () {
       nodeIntegration: true
     }
   })
-
+  BrowserWindow.addDevToolsExtension(path.join(os.homedir(), '/home/pronixx/.config/google-chrome/Default/Extensions/lmhkpmbekcpmknklioeibfkpmmfibljd/2.17.0_0'))
   // and load the index.html of the app.
   win.loadURL(
       isDev ? "http://localhost:3000" : 'file://${path.join(__dirname, "../build/index.html")}'
   )
-
+  
+ 
   // Open the DevTools.
   // win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
+
 
 
 

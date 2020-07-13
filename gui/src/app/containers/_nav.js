@@ -4,7 +4,7 @@ export default [
   {
     _tag: 'CSidebarNavItem',
     name: 'POS',
-    to: '/dashboard',
+    to: '/Pos',
     icon: 'cilPencil',
     badge: {
       color: 'info',

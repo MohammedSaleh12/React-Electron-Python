@@ -11,7 +11,8 @@ import {
 const TheLayout = () => {
 
   return (
-    <div className="c-app c-default-layout">
+    
+    <div>
      
         <TheSidebar/>
    
@@ -22,7 +23,7 @@ const TheLayout = () => {
           <TheHeader/>
      
 
-        <div className="c-body mx-0 my-0">
+        <div id='myContent' className="c-body mx-0 my-0">
           <TheContent/>
         </div>
 
