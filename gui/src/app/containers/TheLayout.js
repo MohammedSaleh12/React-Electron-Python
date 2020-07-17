@@ -13,22 +13,13 @@ const TheLayout = () => {
   return (
     
     <div>
-     
-        <TheSidebar/>
-   
-      
+      <TheSidebar />
       <div className="c-wrapper">
-    
-
-          <TheHeader/>
-     
-
+        <TheHeader />
         <div id='myContent' className="c-body mx-0 my-0">
-          <TheContent/>
+          <TheContent />
         </div>
-
-          <TheFooter/>
-
+        <TheFooter />
       </div>
     </div>
   )

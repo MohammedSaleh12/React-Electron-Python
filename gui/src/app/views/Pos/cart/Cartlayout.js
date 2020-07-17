@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import sizeMe from 'react-sizeme'
 import { Resizable } from "re-resizable";
-import Tables from './tables'
-import Menu from './menu'
+import Buttons from './buttonpanale.jsx'
+import Cart from './cart'
 
 import "./layout.css"
-class ClientScorce extends Component {
+class Cartlayout extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+     
+    }
     this.handleResize= this.handleResize.bind(this);
   }
   componentWillMount(){   
@@ -20,7 +22,7 @@ class ClientScorce extends Component {
         Wight: width,
         
     })
-     
+    
   }
   handleResize = ()=>{
     let { width ,height } = this.props.size
@@ -32,11 +34,10 @@ class ClientScorce extends Component {
   }
   componentDidMount(){
     window.addEventListener("resize" ,  this.handleResize )
-
    
   }
   componentWillUpdate(){
-   
+    
   }
 
   render() {
@@ -47,7 +48,7 @@ class ClientScorce extends Component {
 
     let oSize = {
       
-      height: heightM(this.state.Height , 6) -5
+      height: heightM(this.state.Height , 8) -5
     }
     const oStyle = {
       display: "flex",
@@ -60,9 +61,10 @@ class ClientScorce extends Component {
     }
     let iSize = {
     
-      height: heightM(this.state.Height , 6) -10
+      height: heightM(this.state.Height , 4) -10
     }
     const iStyle = {
+
       display: "flex",
       padding: '0px',
       border: "solid 1px #ddd",
@@ -81,7 +83,7 @@ class ClientScorce extends Component {
         bounds= 'parent'
         className = 'box o'
       >
-      <Tables/>
+      <Cart/>
       </Resizable>
       <Resizable 
         style={iStyle} 
@@ -89,7 +91,7 @@ class ClientScorce extends Component {
         bounds= 'parent'
         className = 'box item'
       >
-      <Menu/>
+      <Buttons/>
       </Resizable>
       
       </div>
@@ -98,4 +100,4 @@ class ClientScorce extends Component {
 
  
 }
-export default sizeMe({ monitorHeight: true  })(ClientScorce);
+export default sizeMe({ monitorHeight: true  })(Cartlayout);

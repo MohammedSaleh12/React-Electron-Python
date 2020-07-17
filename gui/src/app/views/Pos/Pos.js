@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 
 import ClientScorce from './clientScorce/ClientScorce'
+import Cartlayout from './cart/Cartlayout.js';
 
 const mapStateToProps = (state)=>{
     return {
@@ -22,22 +23,28 @@ class Pos extends Component{
         this.state={
            Height: '',
            Wight:'',
-           Sidebartoggle :''
+           Sidebartoggle :'',
+           leftWidth : '',
+           rightWidth : ''
            
         }
         this.handleResize= this.handleResize.bind(this);      
     }
     
-    componentWillMount(){   
-
+    componentWillMount(){
+        const widthM = (width , col)=>{
+            let colgrid = width / 12
+            return colgrid * col 
+        }   
         let { width } = this.props.size
         let height = window.innerHeight 
         this.setState({
             Height: height,
             Wight: width,
-            Sidebartoggle : false
+            leftWidth: widthM(this.state.Wight , 7)
+            
         })
-        console.log("wilmount",this.props.sidebarStatas , this.state.Sidebartoggle )  
+        
     }
 
     handleResize = ()=>{
@@ -67,11 +74,7 @@ class Pos extends Component{
     }
   
     componentWillUnmount(){
-        // const { width } = this.props.size
-        // if(this.state.Wight !== width && this.state.Height !==  window.innerHeight){
-        //     this.handleResize()
-        // }
-        // console.log('um',this.state.Wight ,width ,this.state.Height ,window.innerHeight )
+       
     }
 
     
@@ -86,9 +89,10 @@ class Pos extends Component{
 
         const tiStyle = {
             display: "flex",
-            padding: '10px',
+            padding: '0px',
             border: "solid 1px #ddd",
             background: "#f0f0f0",
+            
             
         };
         const cartstyle = {
@@ -101,13 +105,10 @@ class Pos extends Component{
             width: widthM(this.state.Wight , 7) ,
             height: contentHeight
         }
+        // console.log("pos",tiSize)
         // let  cartHeight= this.state.Height -120
         let cartsize = {
             width: widthM(this.state.Wight , 5) ,
-            height: contentHeight
-        }
-        let extrabutton= {
-            
             height: contentHeight
         }
      
@@ -122,7 +123,7 @@ class Pos extends Component{
             >   
                 <Resizable 
                 style={tiStyle} 
-                // defaultSize={tiSize}
+         
                 size={tiSize}
                 bounds= 'parent'
                 >
@@ -132,11 +133,11 @@ class Pos extends Component{
                 </Resizable>
                 <Resizable 
                 style={cartstyle} 
-                // defaultSize={cartsize}
+               
                 size={cartsize}
                 bounds= 'parent'
                 >
-                  cart
+                  <Cartlayout/>
                 </Resizable>
             
             </View>

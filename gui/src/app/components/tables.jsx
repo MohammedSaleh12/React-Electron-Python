@@ -10,9 +10,7 @@ import {
 
 
 
-import { Label } from 'semantic-ui-react'
 
-import table from './table.png';
 
 class Table extends Component{
 

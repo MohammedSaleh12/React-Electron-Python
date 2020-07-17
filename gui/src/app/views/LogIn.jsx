@@ -1,21 +1,14 @@
 import React, {Component } from 'react';
-import axios from 'axios'
+import featchLogin from '../Api/getLogin.js';
 import {Redirect} from "react-router-dom"
 
 import '../assets/css/style.css'
 import '../assets/css/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
-import '../assets/css/vendor/animate/animate.css'
-import '../assets/css/vendor/css-hamburgers/hamburgers.min.css'
-import '../assets/css/vendor/select2/select2.min.css'
-import '../assets/css/css/util.css'
 import '../assets/css/css/main.css'
 
-import wave from '../assets/img/wave.png';
+import NewWave from '../assets/img/NewWave.png';
 import bg from '../assets/img/bg.png';
 
-
-
-const base64 = require('base-64');
 
 class Login extends Component{
 
@@ -37,52 +30,27 @@ class Login extends Component{
     }
     handleSubmit(e) {
         e.preventDefault();
-        // console.log(this.state)
-        let basic = 'Basic ' + base64.encode(this.state.username + ":" + this.state.password)
-        
-        let login = {
-            method: 'get',
-            url: 'http://127.0.0.1:5000/login',
-            headers: {
-                'Content-Type':'application/json',
-                'Access-Control-Allow-Origin' : 'http://localhost:3000',
-                'Access-Control-Allow-Credentials': 'true',
-                'Authorization': basic,  
-            }
-            
-          };
-          if(this.state.username && this.state.username){
-            axios(login)
-            .then(function (response) {
-                let token = JSON.stringify(response.data)
-                sessionStorage.setItem('Token' , token)
-                
-            })
-            .catch(function (error) {
-              console.warn(error);
-              
-            });
-          }
-          
+        if(this.state.username && this.state.password){
+            featchLogin(this.state.username , this.state.password)
+            .then((result)=>{
+                let token = result
+                if(token.token){
+                    console.log(token )
+                    sessionStorage.setItem('userData', token)
+                    this.setState({logedIn: true})
+                }
+                else{
+                    console.log('username and password did not match')
+                }
+            }) 
+        }      
     }
-    componentWillMount(){
-        if(sessionStorage.getItem('Token')){
-            this.setState({logedIn:true})
-        }else{
-            this.setState({logedIn:false})
-        }
-    }
-    componentDidMount(){
-        if(sessionStorage.getItem('Token')){
-            this.setState({logedIn:true})
-        }else{
-            this.setState({logedIn:false})
-        }
-    }
-    componentWillUpdate(){console.log(this.state.logedIn)}
+    componentWillMount(){}
+    componentDidMount(){}
+    componentWillUpdate(){}
 
     render(){
-        console.log(sessionStorage.getItem('Token'))
+    
         const { username, password } = this.state;
         
         if(this.state.logedIn === true){
@@ -92,7 +60,7 @@ class Login extends Component{
         }else{
             return(
                 <div>
-                <img className="wave" src={wave} alt="wave"></img>
+                <img className="wave" src={NewWave} alt="NewWave"></img>
                 <div className="container">
                     <div className="img">
 			            <img src={bg} alt="bg"/>

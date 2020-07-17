@@ -1,0 +1,12 @@
+.buttonGrid{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
+    
+    
+}
+
+.bill{
+    flex-grow: 1;
+}

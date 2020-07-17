@@ -1,5 +1,5 @@
 import React from 'react';
-import Titlebar from 'react-electron-titlebar'; 
+import Titlebar from './TitleBar'
 import { BrowserRouter, Route } from "react-router-dom"
 
 import './scss/style.scss';
@@ -25,7 +25,7 @@ function App() {
     <React.Suspense fallback={loading}>
     <div>
       <div>
-        <Titlebar title="App Title" backgroundColor="#000000"></Titlebar>
+        <Titlebar/>
       </div>
       <Route path="/dashbord" component={Dsahbord}/>
       <Route path="/" component={Login}/>

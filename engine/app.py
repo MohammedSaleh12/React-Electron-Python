@@ -23,11 +23,33 @@ class User(db.Model):
     role=db.Column(db.String())
     password = db.Column(db.String())
     admin = db.Column(db.Boolean)
+
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(50))
     complete = db.Column(db.Boolean)
     user_id = db.Column(db.Integer)
+
+class Tables(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    no = db.Column(db.Integer)
+    
+
+class Items(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name= db.Column(db.String())
+    price= db.Column(db.Integer)
+    category = db.Column(db.String())
+    isactive = db.Column(db.Boolean)
+
+class Cart(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name= db.Column(db.String())
+    price= db.Column(db.Integer)
+    category = db.Column(db.String())
+    tables_id = db.Column(db.Integer)
+    
+    
 
 def token_required(f):
     @wraps(f)
@@ -42,7 +64,7 @@ def token_required(f):
 
         try: 
             data = jwt.decode(token, app.config['SECRET_KEY'])
-            current_user = User.query.filter_by(public_id=data['public_id']).first()
+            current_user = User.query.filter_by(public_id=data['public_id']).all()
         except:
             return jsonify({'message' : 'Token is invalid!'}), 401
 
@@ -56,7 +78,7 @@ def get_all_users(current_user):
 
     if not current_user.admin:
         return jsonify({'message' : 'Cannot perform that function!'})
-
+    
     users = User.query.all()
 
     output = []
@@ -96,12 +118,7 @@ def get_one_user(current_user, public_id):
 def create_user():
     data = request.get_json()
     hashed_password = generate_password_hash(data['password'], method ='sha256')
-    if data['name'].upper() == "SUPERUSER":
-        permition = True
-    else :
-        permition = False
-
-    new_user = User(public_id=str(uuid.uuid4()), name=data['name'],role=data['role'], password=hashed_password, admin=permition)
+    new_user = User(public_id=str(uuid.uuid4()), name=data['name'],role=data['role'], password=hashed_password, admin=False)
     db.session.add(new_user)
     db.session.commit()
     return jsonify({'massage' : 'new user created'})
@@ -153,8 +170,10 @@ def login():
 
     if check_password_hash(user.password, auth.password):
         token = jwt.encode({'public_id' : user.public_id, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
-
-        return jsonify({'token' : token.decode('UTF-8')})
+        username = user.name
+        role = user.role
+        isadmin = user.admin
+        return jsonify({'token' : token.decode('UTF-8'), 'name': username , 'role': role , 'isadmin' : isadmin})
 
     return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
@@ -225,6 +244,34 @@ def delete_todo(current_user, todo_id):
     db.session.commit()
 
     return jsonify({'message' : 'Todo item deleted!'})
+
+@app.route('/table', methods=['POST'])    
+
+def create_table():
+    data = request.get_json()
+
+    new_table = Tables(no=data['no'])
+    db.session.add(new_table)
+    db.session.commit()
+
+    return jsonify({'message' : "Table created!"})
+
+@app.route('/table', methods=['GET'])
+
+def get_all_tables():
+    tables = Tables.query.all()
+
+    output = []
+
+    for table in tables:
+        table_data = {}
+        table_data['id'] = table.id
+        table_data['no'] = table.no
+        
+        output.append(table_data)
+
+    return jsonify({'tables' : output})
+
 
 if __name__ == '__main__':
     db.create_all()

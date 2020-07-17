@@ -14,9 +14,11 @@ import {
 
 
 import CIcon from '@coreui/icons-react'
-// import  cifAU from '@coreui/icons';
+import  cifAU from '@coreui/icons';
 
-import logo from '../../logo.svg';
+
+import logo from '../../logo.png';
+import logofull from '../../logofull.png';
 
 // sidebar nav config
 import navigation from './_nav'
@@ -38,7 +40,7 @@ const TheSidebar = () => {
         <CIcon
           className="c-sidebar-brand-full"
           name="logo"
-          src = {logo}
+          src = {logofull}
           height={35}
         />
         <CIcon
