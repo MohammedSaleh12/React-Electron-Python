@@ -207,3 +207,33 @@ def get_all_tables(current_user):
         output.append(table_data)
 
     return jsonify({'tables' : output})
+
+@app.route('/item', methods=['POST'])    
+@token_required
+def create_item(current_user):
+    data = request.get_json()
+
+    new_item = Items(name=data['name'], price=data['price'], category=data['category'] )
+    db.session.add(new_item)
+    db.session.commit()
+
+    return jsonify({'message' : "Item Created!"})
+
+@app.route('/item', methods=['GET'])
+@token_required
+def get_all_item(current_user):
+    items = Items.query.all()
+
+    output = []
+
+    for item in items:
+        item_data = {}
+        item_data['id'] = item.id
+        item_data['name'] = item.name
+        item_data['price'] = item.price
+        item_data['category'] = item.category
+        
+        
+        output.append(item_data)
+
+    return jsonify({'tables' : output})

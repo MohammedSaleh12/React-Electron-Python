@@ -6,7 +6,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import TableButton from '../../../components/TableButton'
+
+import TablesHandler from './tables'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,9 +67,7 @@ export default function Tables() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <TableButton no={1} status={1}/>
-        <TableButton no={2} />
-        <TableButton no={3} status={1}/>
+        <TablesHandler/>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Under Devloving!

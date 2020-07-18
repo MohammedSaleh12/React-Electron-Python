@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import sizeMe from 'react-sizeme'
 import { Resizable } from "re-resizable";
-import Tables from './tables'
+import Tables from './client'
 import Menu from './menu'
 
 import "./layout.css"

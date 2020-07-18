@@ -13,8 +13,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ArrowDropDownCircleIcon from '@material-ui/icons/ArrowDropDownCircle';
 
 const TheHeaderDropdownNotif = () => {
-  const userdata = sessionStorage.getItem('userData')
-  console.log(userdata)
+  const username = sessionStorage.getItem('name')
+  const userRole = sessionStorage.getItem('role')
   return (
     <CDropdown
       inNav
@@ -34,9 +34,9 @@ const TheHeaderDropdownNotif = () => {
         >
           {/* <strong>You have {itemsCount} notifications</strong> */}
         </CDropdownItem>
-        <CDropdownItem><CIcon name="cil-user" className="mr-2 text-success" /></CDropdownItem>
+        <CDropdownItem><CIcon name="cil-user" className="mr-2 text-success" />{username}</CDropdownItem>
 
-        <CDropdownItem><CIcon name="cil-chart-pie" className="mr-2 text-info" /> </CDropdownItem>
+        <CDropdownItem><CIcon name="cil-chart-pie" className="mr-2 text-info" />{userRole}</CDropdownItem>
 
         <CDropdownItem> <AccountCircleIcon />logout</CDropdownItem>
 

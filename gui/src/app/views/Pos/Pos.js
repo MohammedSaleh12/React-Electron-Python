@@ -5,7 +5,7 @@ import { View } from 'react-desktop/macOs';
 import { connect } from 'react-redux'
 
 
-import ClientScorce from './clientScorce/ClientScorce'
+import ClientScorce from './clientScorce/layout'
 import Cartlayout from './cart/Cartlayout.js';
 
 const mapStateToProps = (state)=>{

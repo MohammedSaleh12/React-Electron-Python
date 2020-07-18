@@ -33,3 +33,4 @@ class Cart(db.Model):
     category = db.Column(db.String())
     tables_id = db.Column(db.Integer)
     
+  

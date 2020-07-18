@@ -35,38 +35,38 @@ function Buttons(props){
             </Button>
         </div>
 
-        <div classname='bill'>
+        <div className='bill'>
           <Table striped bordered hover size="sm">
             <tbody>
               <tr>
-                <td class="left">
+                <td className="left">
                   <strong>Subtotal</strong>
                 </td>
-                <td class="right">600.00</td>
+                <td className="right">600.00</td>
               </tr>
               <tr>
-                <td class="left">
+                <td className="left">
                   <strong>Discount 0%</strong>
                 </td>
-                <td class="right">00.00</td>
+                <td className="right">00.00</td>
               </tr>
               <tr>
-                <td class="left">
+                <td className="left">
                   <strong>CGST (5%)</strong>
                 </td>
-                <td class="right">3.00</td>
+                <td className="right">3.00</td>
               </tr>
               <tr>
-                <td class="left">
+                <td className="left">
                   <strong>SGST (5%)</strong>
                 </td>
-                <td class="right">3.00</td>
+                <td className="right">3.00</td>
               </tr>
               <tr>
-                <td class="left">
+                <td className="left">
                   <strong>Total</strong>
                 </td>
-                <td class="right">
+                <td className="right">
                   <strong>606.00</strong>
                 </td>
               </tr>

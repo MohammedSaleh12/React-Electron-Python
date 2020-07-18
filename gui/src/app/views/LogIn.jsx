@@ -18,7 +18,8 @@ class Login extends Component{
         this.state={
             username: '' ,
             password: '',
-            logedIn: false,            
+            logedIn: false,
+            userData : null            
         }
         
         this.handleChange = this.handleChange.bind(this);
@@ -33,11 +34,21 @@ class Login extends Component{
         if(this.state.username && this.state.password){
             featchLogin(this.state.username , this.state.password)
             .then((result)=>{
-                let token = result
-                if(token.token){
-                    console.log(token )
-                    sessionStorage.setItem('userData', token)
-                    this.setState({logedIn: true})
+                this.setState({userData : result })
+                if(this.state.userData){
+                    const {isadmin, name, role ,token} =this.state.userData
+                    sessionStorage.setItem('isadmin', isadmin)
+                    sessionStorage.setItem('name', name)
+                    sessionStorage.setItem('role', role)
+                    sessionStorage.setItem('token', token)
+                    const auth = sessionStorage.getItem('token')
+                    if(auth){
+                        this.setState({logedIn: true})
+                    }else{
+                        this.setState({logedIn: false})
+                    }
+                   
+                    
                 }
                 else{
                     console.log('username and password did not match')
@@ -45,7 +56,15 @@ class Login extends Component{
             }) 
         }      
     }
+    componentWillMount() {
+        const auth = sessionStorage.getItem('token')
+        if (auth) {
+            this.setState({ logedIn: true })
+        } else {
+            this.setState({ logedIn: false })
+        }
 
+    }
 
     render(){
     
