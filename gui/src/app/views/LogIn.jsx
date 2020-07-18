@@ -45,9 +45,7 @@ class Login extends Component{
             }) 
         }      
     }
-    componentWillMount(){}
-    componentDidMount(){}
-    componentWillUpdate(){}
+
 
     render(){
     
@@ -66,6 +64,7 @@ class Login extends Component{
 			            <img src={bg} alt="bg"/>
 		            </div>
                 <div className="login-content">
+
                 <form className="form" name="form" onSubmit={this.handleSubmit}>
                     
                     <span className="login100-form-title">

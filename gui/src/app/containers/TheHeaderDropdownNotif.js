@@ -38,7 +38,7 @@ const TheHeaderDropdownNotif = () => {
 
         <CDropdownItem><CIcon name="cil-chart-pie" className="mr-2 text-info" /> </CDropdownItem>
 
-        <CDropdownItem> <AccountCircleIcon />{''}logout</CDropdownItem>
+        <CDropdownItem> <AccountCircleIcon />logout</CDropdownItem>
 
       </CDropdownMenu>
     </CDropdown>

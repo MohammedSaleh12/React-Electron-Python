@@ -9,12 +9,12 @@ from api.auth import token_required
 
  
 @app.route('/user', methods=['GET'])
-@token_required
-def get_all_users(current_user):
 
-    if not current_user.admin:
-        return jsonify({'message' : 'Cannot perform that function!'})
-    
+def get_all_users():
+
+   
+     # if not current_user.admin:
+    #     return jsonify({'message' : 'Cannot perform that function!'})
     users = User.query.all()
 
     output = []
@@ -50,11 +50,11 @@ def get_one_user(current_user, public_id):
  
 
 @app.route('/user', methods =['POST'])
-@token_required
+
 def create_user():
     data = request.get_json()
     hashed_password = generate_password_hash(data['password'], method ='sha256')
-    new_user = User(public_id=str(uuid.uuid4()), name=data['name'],role=data['role'], password=hashed_password, admin=False)
+    new_user = User(public_id=str(uuid.uuid4()), name=data['name'],role=data['role'], password=hashed_password, admin=True)
     db.session.add(new_user)
     db.session.commit()
     return jsonify({'massage' : 'new user created'})

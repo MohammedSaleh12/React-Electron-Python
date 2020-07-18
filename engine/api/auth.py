@@ -2,6 +2,7 @@ from flask import jsonify ,request , make_response
 import jwt
 from functools import wraps
 from api.models import User, Todo, Tables, Items , Cart
+from api import app 
 
 def token_required(f):
     @wraps(f)
