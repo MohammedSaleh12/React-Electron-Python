@@ -182,8 +182,8 @@ def delete_todo(current_user, todo_id):
     return jsonify({'message' : 'Todo item deleted!'})
 
 @app.route('/table', methods=['POST'])    
-
-def create_table():
+@token_required
+def create_table(current_user):
     data = request.get_json()
 
     new_table = Tables(no=data['no'])
@@ -193,8 +193,8 @@ def create_table():
     return jsonify({'message' : "Table created!"})
 
 @app.route('/table', methods=['GET'])
-
-def get_all_tables():
+@token_required
+def get_all_tables(current_user):
     tables = Tables.query.all()
 
     output = []
