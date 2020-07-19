@@ -105,7 +105,7 @@ def login():
         return make_response('Could not verify', 401, {'WWW-Authenticate' : 'Basic realm="Login required!"'})
 
     if check_password_hash(user.password, auth.password):
-        token = jwt.encode({'public_id' : user.public_id, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=30)}, app.config['SECRET_KEY'])
+        token = jwt.encode({'public_id' : user.public_id, 'exp' : datetime.datetime.utcnow() + datetime.timedelta(minutes=180)}, app.config['SECRET_KEY'])
         username = user.name
         role = user.role
         isadmin = user.admin
@@ -236,4 +236,4 @@ def get_all_item(current_user):
         
         output.append(item_data)
 
-    return jsonify({'tables' : output})
+    return jsonify({'items' : output})

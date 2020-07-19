@@ -8,30 +8,31 @@ class TablesHandler extends Component{
         super(props)
 
         this.state={
-           
-           
+            tableData : []
         }      
     }
     componentDidMount(){
         const token = sessionStorage.getItem('token')
         featchtable(token)
         .then((result)=>{
-            
-         
-            this.setState({result})
+
+            this.setState({tableData : result.tables})
             
         })    
     }
     render(){
         
-        const { result} =this.state
+        const {tableData} = this.state
+        
+      
+        
         return (
             <div>
-                {/* {result.map(tables =>{
+                {tableData.map(tables =>{
                     return(
-                        <TableButton no={tables.no}/>
+                        <TableButton no={tables.no} key={tables.id}/>
                     )
-                })} */}
+                })}
                
 
             </div>

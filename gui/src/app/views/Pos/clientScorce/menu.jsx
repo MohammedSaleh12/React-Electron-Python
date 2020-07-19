@@ -5,7 +5,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import {Button, Label } from 'semantic-ui-react'
+
+import Itemhandler from './itsms'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,25 +76,10 @@ export default function Menu() {
         
       </Tabs>
       <TabPanel value={value} index={0}>
-      <Button as='div' labelPosition='right' size='mini'>
-      <Button basic color='blue' size='mini'>
-        Chicken Biriyani
-      </Button>
-      <Label as='a' basic color='blue' pointing='left'>
-        260.00
-      </Label>
-      </Button>
-      <Button as='div' labelPosition='right' size='mini'>
-      <Button basic color='blue' size='mini'>
-        Veg Biriyani
-      </Button>
-      <Label as='a' basic color='blue' pointing='left'>
-        200.00
-      </Label>
-      </Button>
+       <Itemhandler/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        under devlobing ...
       </TabPanel>
      
     </div>
